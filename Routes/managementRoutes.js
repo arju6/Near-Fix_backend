@@ -1,0 +1,14 @@
+import { Router } from "express";
+import wrap from "../utils/asyncHandler.js";
+import * as c from "../controller/managementController.js";
+const router = Router();
+router.get("/me", wrap(c.me));
+router.get("/categories", wrap(c.categories));
+router.post("/categories", wrap(c.editCategory));
+router.patch("/categories/:id", wrap(c.editCategory));
+router.patch("/users/:id", wrap(c.account));
+router.get("/feedback", wrap(c.feedback));
+router.post("/feedback", wrap(c.addFeedback));
+router.patch("/feedback/:id", wrap(c.moderateFeedback));
+router.patch("/requests/:id/estimate", wrap(c.estimate));
+export default router;
